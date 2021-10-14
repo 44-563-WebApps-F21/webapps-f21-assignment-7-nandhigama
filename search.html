@@ -20,7 +20,9 @@
     <p style="color: darkmagenta;">“Click on the squares to search for wild life”</p>
     <p id="tries" style="color: blue;"> “Number of tries is zero”</p>
     <p id="distance" style="color: red;"> “Distance is unknown”</p>
+    <button onclick="newGame()" class="btn btn-success">Reset</button>
     <div class="container">
+        
         <div class="row">
             <div class="col-sm-2"><img src="tree.jpg" id="img0" onclick="check(0)" alt="neem" width="250px"; height="250px";></div>
             <div class="col-sm-2"><img src="tree.jpg" id="img1" onclick="check(1)" alt="neem" width="250px"; height="250px";></div>
@@ -97,6 +99,20 @@
                 }
             }
             return Math.max(Math.abs(v2 - v1), Math.abs(h2 - h1))
+        }
+        function newGame() {
+            triesCount = 0;
+            animalLocation = Math.round(Math.random() * (23 - 0) + 0);
+            document.getElementById("tries").innerHTML = "Number of tries is zero";
+            distanceOfAnimal = "unknown"
+            document.getElementById("distance").innerHTML = "Distance is " + distanceOfAnimal;
+            for (var i = 0; i <= 23; i++) {
+                if(img_array[i]== img_array[animalLocation])
+                document.getElementById(img_array[i]).src = "animal.jpg";
+                else
+                document.getElementById(img_array[i]).src = "tree.jpg";
+            }
+
         }
     </script>
 
